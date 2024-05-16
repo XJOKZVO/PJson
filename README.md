@@ -7,14 +7,23 @@ The encode_json_variable subroutine is the core function that determines how to 
 For undefined variables, it offers three behaviors: omitting them entirely, replacing them with a placeholder value specified in $options->{undef_placeholder}, or defaulting to JSON::null. The depth of recursion is controlled by $depth, and there's an option to limit the maximum depth of recursion to prevent infinite loops due to circular references.
 
 The script supports encoding of various reference types, including:
+
 1.Scalars: Directly uses the scalar value.
+
 2.Arrays: Encodes each element recursively unless the maximum depth is reached.
+
 3.Hashes: Encodes each key-value pair recursively unless the maximum depth is reached.
+
 4.Globs: Supports custom handling via a callback function.
+
 5.Regexes: Converts the regex pattern to a string.
+
 6.Code References: Supports custom handling via a callback function.
+
 7.File Handles: Supports custom handling via a callback function.
+
 8.Blessed Objects: Can serialize the object's attributes or stringify the object based on the handle_blessed option.
+
 
 Additionally, it includes support for serializing blessed objects with custom serializers specified in $options->{custom_serializers}. This allows for flexible customization of how complex objects are serialized.
 
