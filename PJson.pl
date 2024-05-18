@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+package PJson;
 
 use strict;
 use warnings;
@@ -179,3 +180,4 @@ sub looks_like_number {
     return 1 if $value =~ /^-?\d+\.\d+$/; # float
     return;
 }
+1;
